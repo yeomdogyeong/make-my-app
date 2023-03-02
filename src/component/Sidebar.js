@@ -34,6 +34,10 @@ const Sidebar = () => {
         {/* <FontAwesomeIcon icon="fa-solid fa-user" /> */}
         <div>Mention</div>
       </Link>
+      <Link to="/weather">
+        {/* <FontAwesomeIcon icon="fa-solid fa-user" /> */}
+        <div>Weather</div>
+      </Link>
     </ChangeBar>
   );
 };

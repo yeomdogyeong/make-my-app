@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { WhoIsShe } from "./pages/WhoIsShe";
 import { Mention } from "./pages/Mention";
+import { Weather } from "./pages/Weather";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/listpage" element={<ListPage />} />
           <Route path="whoisshe" element={<WhoIsShe />} />
           <Route path="mention" element={<Mention />} />
+          <Route path="weather" element={<Weather />} />
         </Routes>
       </BrowserRouter>
     </main>

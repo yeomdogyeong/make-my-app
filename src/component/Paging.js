@@ -12,9 +12,9 @@ const Paging = ({
   return (
     <Pagination
       activePage={page}
-      itemsCountPerPage={postPerPage}
+      itemsCountPerPage={postPerPage} //페이지마다보여질개수
       totalItemsCount={totalCount ? totalCount : 0}
-      pageRangeDisplayed={pageRangeDisplayed}
+      pageRangeDisplayed={pageRangeDisplayed} //페이지에보여질개수
       prevPageText={"‹"}
       nextPageText={"›"}
       onChange={handlePageChange}

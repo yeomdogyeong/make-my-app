@@ -10,11 +10,11 @@ const ListContainer = styled.div`
 
   background-color: #c8d7ff;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   margin: 10px;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 
   > .toggle-container {
     width: 24px;
@@ -31,17 +31,29 @@ const ListContainer = styled.div`
     background-color: #8cf064;
     //순서조심! toggle-container 위에 가있으면 작동안함. background-color만 눌러줘도 작동
   }
+
+  > .something {
+    width: 40px;
+    height: 40px;
+  }
+  > .sample {
+    width: 100px;
+    height: 100px;
+  }
 `;
 const FirstContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  align-items: left;
   width: 298px;
   height: 49px;
-  background-color: #d5c2ee;
+  background-color: #c8d7ff;
   opacity: 0.8;
   margin-top: 10px;
   border-radius: 50px;
+  font-size: 22px;
+  margin-right: 10px;
+  margin-top: 25px;
 `;
 
 export const List = ({ text }) => {
@@ -56,6 +68,11 @@ export const List = ({ text }) => {
       <ListContainer onClick={toggleCheck}>
         <FirstContainer>{text}</FirstContainer>
         {/* <div className={`toggle-container ${check ? "box--checked" : null}`} /> */}
+        <img
+          className={`something ${check ? "sample" : null}`}
+          alt="dogimg"
+          src="img/successdog.png"
+        />
         <FaCheck
           className={`toggle-container ${check ? "box--checked" : null}`}
         />

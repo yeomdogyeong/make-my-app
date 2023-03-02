@@ -36,36 +36,34 @@ const InputBox = styled.div`
   }
 `;
 
-const LiStyle = styled.li`
-  list-style: none;
-  margin: 10px;
-`;
-
 const ButtonBox = styled.button`
   margin: 0.2rem;
   padding: 0.5rem 0.5rem;
   border-radius: 1rem;
   cursor: pointer;
 `;
+
+const UlBox = styled.div`
+  height: 500px;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-top: 10px;
+`;
 const dummyData = [
-  { id: 1, content: "hi" },
-  { id: 2, content: "a" },
-  { id: 3, content: "b" },
-  { id: 4, content: "ci" },
-  { id: 5, content: "d" },
-  { id: 6, content: "e" },
-  { id: 7, content: "d" },
+  { id: 3, content: "d" },
+  { id: 2, content: "e" },
+  { id: 1, content: "d" },
 ];
 
 export const Inputs = () => {
   const [msg, setMsg] = useState("");
   const [tweets, setTweets] = useState(dummyData);
+  const [plus, setPlus] = useState(4);
 
   const [page, setPage] = useState(1);
 
   const handlePageChange = (page) => {
     setPage(page);
-    console.log(page);
   };
 
   const [postPerPage] = useState(5);
@@ -76,21 +74,25 @@ export const Inputs = () => {
 
   const handleButtonClick = (event) => {
     const input = {
-      id: tweets.length + 1,
+      id: plus,
       content: msg,
       // createdAt: new Date().toLocaleDateString('ko-kr'),
       // updatedAt: new Date().toLocaleDateString('ko-kr'),
     };
     setTweets([input, ...tweets]);
+    setPlus(plus + 1);
   };
   console.log(tweets);
 
   const handleDelete = (id) => {
+    console.log(id);
     const newReportList = tweets.filter((it) => it.id !== id);
     setTweets(newReportList);
   };
 
-  console.log(handleDelete);
+  const pageNationTweets = tweets.slice((page - 1) * 5, page * 5);
+  console.log(pageNationTweets);
+  console.log(page);
   return (
     <>
       <MainBox>
@@ -105,22 +107,26 @@ export const Inputs = () => {
         </InputBox>
         <ButtonBox onClick={handleButtonClick}>submit</ButtonBox>
       </MainBox>
-      <LiStyle>
-        <ul>
-          <li>
-            {tweets.map((input) => (
-              <Input key={input.id} input={input} handleDelete={handleDelete} />
-            ))}
-          </li>
-        </ul>
+      <div>
+        <UlBox>
+          {pageNationTweets.map((input) => (
+            <Input
+              key={input.id}
+              input={input}
+              handleDelete={handleDelete}
+              text={tweets.find((tweet) => tweet.id === input.id).id}
+            />
+          ))}
+        </UlBox>
+
         <Paging
           totalCount={tweets.length}
           page={page}
           postPerPage={postPerPage}
           handlePageChange={handlePageChange}
-          pageRangeDisplayed={4}
+          pageRangeDisplayed={10}
         />
-      </LiStyle>
+      </div>
     </>
   );
 };

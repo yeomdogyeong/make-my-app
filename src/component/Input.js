@@ -10,27 +10,21 @@ const InputBox = styled.div`
   position: inherit;
   width: 100%;
   height: 100px;
-  border: solid red;
-
-  > .namebox {
-    width: 500px;
-    height: 20px;
-    border: solid 1px blue;
-  }
-
-  > .mentionbox {
-    width: 498px;
-    height: 78px;
-    border: solid 1px yellow;
-  }
-
-  > .buttonbox {
-    margin: 1rem;
-    padding: 1rem 1rem;
-    border-radius: 1rem;
-    cursor: pointer;
-  }
 `;
+const Namebox = styled.div`
+  text-align: center;
+  width: 300px;
+  height: 20px;
+  background-color: orange;
+  border-radius: 30px;
+`;
+
+const MentionBox = styled.div`
+  width: 498px;
+  height: 78px;
+  border: solid 1px yellow;
+`;
+
 const ButtonBox = styled.button`
   margin: 0.2rem;
   padding: 0.5rem 0.5rem;
@@ -38,22 +32,18 @@ const ButtonBox = styled.button`
   cursor: pointer;
 `;
 
-export const Input = ({ input, handleDelete }) => {
+export const Input = ({ input, handleDelete, text }) => {
   return (
-    <>
-      <MainBox>
-        <InputBox>
-          <ul>
-            <li className="li-id" id={input.id}>
-              <div className="namebox">망고에게 한마디</div>
-              <div className="mentionbox">{input.content}</div>
-            </li>
-          </ul>
-        </InputBox>
-        <ButtonBox onClick={handleDelete}>X</ButtonBox>
-      </MainBox>
-    </>
+    <MainBox>
+      <InputBox>
+        <Namebox>망고에게 {text} 번째 얘기중</Namebox>
+        <div className="mentionbox">{input.content}</div>
+      </InputBox>
+      <ButtonBox onClick={() => handleDelete(input.id)}>X</ButtonBox>
+    </MainBox>
   );
 };
 
 // onClick={() => handleDelete(id)}
+// text={tweets.find((tweet) => tweet.id === input.id).id}
+// text={tweets[idx].id}
