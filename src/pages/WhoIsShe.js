@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Sidebar from "../component/Sidebar";
 import "./WhoIsShe.css";
+import Navigate from "../component/Navigate";
 
 const DefaultBox = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const DefaultBox = styled.div`
 const SecondBox = styled.div`
   width: 700px; //이거 max-width로 하면안됨
   height: 700px;
-  border: solid red;
+  /* border: solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,15 +33,22 @@ const SecondBox = styled.div`
     margin-bottom: 30px;
   }
 `;
+const FirstBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const WhoIsShe = () => {
   return (
     <DefaultBox>
       <Sidebar />
-      <SecondBox>
-        <img className="dogimg" alt="dogimg" src="img/mangowith.jpg" />
-        망고의 집사 github : yeomdogyeong
-      </SecondBox>
+      <FirstBox>
+        <SecondBox>
+          <img className="dogimg" alt="dogimg" src="img/mangowith.jpg" />
+          망고의 집사 github : yeomdogyeong
+        </SecondBox>
+        <Navigate />
+      </FirstBox>
     </DefaultBox>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Sidebar from "../component/Sidebar";
 import { List } from "../component/List";
+import Navigate from "../component/Navigate";
 
 const DefaultBox = styled.div`
   display: flex;
@@ -16,6 +17,10 @@ const DefaultBox = styled.div`
   margin-top: 40px;
 `;
 
+const FirstBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const SecondBox = styled.div`
   width: 700px;
   height: 700px;
@@ -37,16 +42,19 @@ export const ListPage = () => {
   return (
     <DefaultBox>
       <Sidebar />
-      <SecondBox>
-        <ListBox>
-          <List text="망고와 하루 한 번 산책 🚶‍♀️" />
-          <List text="망고에게 간식 하나 🍩" />
-          <List text="망고 쓰담쓰담 해주기 ✨" />
-          <List text="망고와 장난감 놀이 🍭" />
-          <List text="망고와 장난감 놀이" />
-          <List text="망고와 장난감 놀이" />
-        </ListBox>
-      </SecondBox>
+      <FirstBox>
+        <SecondBox>
+          <ListBox>
+            <List text="망고와 하루 한 번 산책 🚶‍♀️" />
+            <List text="망고에게 간식 하나 🍩" />
+            <List text="망고 쓰담쓰담 해주기 ✨" />
+            <List text="망고와 장난감 놀이 🍭" />
+            <List text="망고와 장난감 놀이" />
+            <List text="망고와 장난감 놀이" />
+          </ListBox>
+        </SecondBox>
+        <Navigate />
+      </FirstBox>
     </DefaultBox>
   );
 };

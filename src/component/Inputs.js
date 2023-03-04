@@ -7,13 +7,18 @@ import Paging from "./Paging";
 
 const MainBox = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const InputBox = styled.div`
-  position: inherit;
-  width: 100%;
+  position: relative;
+  display: flex;
+  width: 80%;
   height: 100px;
   /* border: solid red; */
+  text-align: center;
+  font-size: 24px;
 
   > .namebox {
     width: 500px;
@@ -22,43 +27,78 @@ const InputBox = styled.div`
   }
 
   > .mentionbox {
-    width: 498px;
-    height: 78px;
+    position: inherit;
+    margin: 10px;
+    width: 300px;
+    height: 100px;
     background-color: pink;
+    width: 80%;
+    line-height: 27px;
+    /* padding: 5px 0; */
+    resize: none;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
   }
 
-  > .buttonbox {
+  /* > .buttonbox {
     position: inherit;
     margin: 0.2rem;
     padding: 0.5rem 0.5rem;
     border-radius: 1rem;
     cursor: pointer;
-  }
+  } */
 `;
 
 const ButtonBox = styled.button`
-  margin: 0.2rem;
-  padding: 0.5rem 0.5rem;
-  border-radius: 1rem;
   cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  margin-top: 40px;
+  margin-left: 20px;
+
+  /*크기*/
+  height: 3rem;
+  font-size: 1rem;
+
+  /*색상 */
+  background: #228be6;
+  &:hover {
+    background: #339af0;
+  }
+  &:active {
+    background: #1c7ed6;
+  }
 `;
 
 const UlBox = styled.div`
   height: 500px;
   overflow: hidden;
   overflow-y: auto;
-  margin-top: 10px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 const dummyData = [
-  { id: 3, content: "d" },
-  { id: 2, content: "e" },
-  { id: 1, content: "d" },
+  { id: 2, content: "귀엽다" },
+  { id: 1, content: "망고는 푸들" },
 ];
 
 export const Inputs = () => {
   const [msg, setMsg] = useState("");
   const [tweets, setTweets] = useState(dummyData);
-  const [plus, setPlus] = useState(4);
+  const [plus, setPlus] = useState(3);
 
   const [page, setPage] = useState(1);
 
@@ -72,40 +112,45 @@ export const Inputs = () => {
     setMsg(event.target.value);
   };
 
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      handleButtonClick(event);
+    }
+  };
   const handleButtonClick = (event) => {
     const input = {
       id: plus,
       content: msg,
-      // createdAt: new Date().toLocaleDateString('ko-kr'),
-      // updatedAt: new Date().toLocaleDateString('ko-kr'),
     };
+
     setTweets([input, ...tweets]);
     setPlus(plus + 1);
+    setMsg("");
+    event.preventDefault();
   };
-  console.log(tweets);
 
   const handleDelete = (id) => {
-    console.log(id);
     const newReportList = tweets.filter((it) => it.id !== id);
     setTweets(newReportList);
   };
 
-  const pageNationTweets = tweets.slice((page - 1) * 5, page * 5);
-  console.log(pageNationTweets);
-  console.log(page);
+  const pageNationTweets = tweets.slice((page - 1) * 3, page * 3);
+  // console.log(pageNationTweets);
+  // console.log(page);
   return (
     <>
       <MainBox>
         <InputBox>
-          <div className="namebox">망고에게 한마디</div>
+          {/* <div className="namebox">망고에게 한마디</div> */}
           <textarea
-            placeholder="write here.."
+            placeholder="망고에게 한마디 적기"
             className="mentionbox"
+            onKeyDown={(event) => handleEnter(event)}
             onChange={handleMsg}
             value={msg}
           ></textarea>
+          <ButtonBox onClick={handleButtonClick}>submit</ButtonBox>
         </InputBox>
-        <ButtonBox onClick={handleButtonClick}>submit</ButtonBox>
       </MainBox>
       <div>
         <UlBox>

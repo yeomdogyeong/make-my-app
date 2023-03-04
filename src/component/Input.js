@@ -4,6 +4,10 @@ import styled from "styled-components";
 
 const MainBox = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 50vh;
 `;
 
 const InputBox = styled.div`
@@ -11,12 +15,15 @@ const InputBox = styled.div`
   width: 100%;
   height: 100px;
 `;
-const Namebox = styled.div`
+const NameBox = styled.div`
   text-align: center;
-  width: 300px;
+  width: 35vw;
   height: 20px;
-  background-color: orange;
-  border-radius: 30px;
+  background-color: #b4b4ff;
+
+  > .mentionBox {
+    text-align: center;
+  }
 `;
 
 const MentionBox = styled.div`
@@ -26,18 +33,41 @@ const MentionBox = styled.div`
 `;
 
 const ButtonBox = styled.button`
-  margin: 0.2rem;
-  padding: 0.5rem 0.5rem;
-  border-radius: 1rem;
   cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 7rem;
+  margin-bottom: 4rem;
+
+  /*크기*/
+  height: 2.25rem;
+  font-size: 1rem;
+
+  /*색상 */
+  background: #228be6;
+  &:hover {
+    background: #339af0;
+  }
+  &:active {
+    background: #1c7ed6;
+  }
 `;
 
 export const Input = ({ input, handleDelete, text }) => {
   return (
     <MainBox>
       <InputBox>
-        <Namebox>망고에게 {text} 번째 얘기중</Namebox>
-        <div className="mentionbox">{input.content}</div>
+        <NameBox>망고에게 {text} 번째 얘기중</NameBox>
+        <div className="mentionBox">{input.content}</div>
       </InputBox>
       <ButtonBox onClick={() => handleDelete(input.id)}>X</ButtonBox>
     </MainBox>

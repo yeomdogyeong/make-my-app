@@ -11,17 +11,17 @@ import { Weather } from "./pages/Weather";
 
 function App() {
   return (
-    <main>
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MangoToDo />} />
           <Route path="/listpage" element={<ListPage />} />
-          <Route path="whoisshe" element={<WhoIsShe />} />
-          <Route path="mention" element={<Mention />} />
-          <Route path="weather" element={<Weather />} />
+          <Route path="/whoisshe" element={<WhoIsShe />} />
+          <Route path="/mention" element={<Mention />} />
+          <Route path="/weather" element={<Weather />} />
         </Routes>
       </BrowserRouter>
-    </main>
+    </>
   );
 }
 
