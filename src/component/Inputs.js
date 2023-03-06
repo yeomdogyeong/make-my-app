@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Input } from "./Input";
@@ -124,6 +124,7 @@ export const Inputs = () => {
     };
 
     setTweets([input, ...tweets]);
+    localStorage.setItem("tomention", JSON.stringify([input, ...tweets]));
     setPlus(plus + 1);
     setMsg("");
     event.preventDefault();
@@ -132,7 +133,14 @@ export const Inputs = () => {
   const handleDelete = (id) => {
     const newReportList = tweets.filter((it) => it.id !== id);
     setTweets(newReportList);
+    localStorage.setItem("tomention", JSON.stringify(newReportList));
   };
+  useEffect(() => {
+    const localList = localStorage.getItem("tomention");
+    if (localList) {
+      setTweets(JSON.parse(localList));
+    }
+  }, []);
 
   const pageNationTweets = tweets.slice((page - 1) * 3, page * 3);
   // console.log(pageNationTweets);

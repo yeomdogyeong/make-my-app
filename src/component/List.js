@@ -7,7 +7,7 @@ import { FaCheck } from "react-icons/fa";
 const ListContainer = styled.div`
   width: 600px;
   height: 98px;
-
+  border-radius: 10px;
   background-color: #c8d7ff;
   display: flex;
   /* flex-direction: column; */

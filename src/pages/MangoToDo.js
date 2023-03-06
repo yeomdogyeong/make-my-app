@@ -22,7 +22,7 @@ const DefaultBox = styled.div`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin-top: 40px;
+  margin-top: 10px;
 `;
 
 const SecondBox = styled.div`
@@ -33,6 +33,7 @@ const SecondBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: white;
   /* background: radial-gradient(
     ellipse at center,
     rgba(255, 254, 234, 1) 0%,
@@ -40,15 +41,21 @@ const SecondBox = styled.div`
     #b7e8eb 100%
   );
   overflow: hidden; */
-
   > .toimg {
-    width: 300px;
-    height: 300px;
+    width: 290px;
+    height: 400px;
+    background: white;
+    &:hover {
+      background: rgb(220, 224, 227);
+    }
+    &:active {
+      background: white;
+    }
   }
 
   > .mangoSay {
-    font-size: x-large;
-    margin: 10px;
+    font-size: 20px;
+    margin: 30px;
   }
 `;
 
@@ -57,6 +64,8 @@ const FirstBox = styled.div`
   flex-direction: column;
 `;
 
+const url = "https://dogmbti1031.netlify.app/";
+
 function MangoToDo() {
   return (
     <DefaultBox>
@@ -64,8 +73,18 @@ function MangoToDo() {
       <FirstBox>
         {" "}
         <SecondBox>
-          <div className="mangoSay">할일이 많다 멍</div>
-          <img className="toimg" alt="dogimg" src="img/todog.png" />
+          <div className="mangoSay">
+            나에게 맞는 강아지가 궁금하면 망고를 클릭하세요
+          </div>
+          <img
+            className="toimg"
+            alt="dogimg"
+            src="img/standingmango.png"
+            onClick={() => {
+              window.open(url);
+            }}
+            style={{ cursor: "pointer" }}
+          />
         </SecondBox>
         <Navigate />
       </FirstBox>

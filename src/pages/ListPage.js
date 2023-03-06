@@ -24,7 +24,7 @@ const FirstBox = styled.div`
 const SecondBox = styled.div`
   width: 700px;
   height: 700px;
-  border: solid red;
+  /* border: solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
