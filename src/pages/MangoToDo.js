@@ -18,11 +18,9 @@ const DefaultBox = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: solid black;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin-top: 10px;
 `;
 
 const SecondBox = styled.div`
@@ -42,11 +40,11 @@ const SecondBox = styled.div`
   );
   overflow: hidden; */
   > .toimg {
-    width: 290px;
-    height: 400px;
+    width: 300px;
+    height: 500px;
     background: white;
     &:hover {
-      background: rgb(220, 224, 227);
+      transform: translateY(-20px);
     }
     &:active {
       background: white;

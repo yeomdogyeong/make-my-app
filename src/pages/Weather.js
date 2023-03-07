@@ -14,23 +14,22 @@ const DefaultBox = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: solid black;
+  /* border: solid black; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 `;
 
 const SecondBox = styled.div`
   width: 700px; //이거 max-width로 하면안됨
   height: 700px;
-  border: solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: white;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 
   .appContentWrap {
     /* transform: translate(-50%, -50%); */

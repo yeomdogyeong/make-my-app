@@ -10,11 +10,9 @@ const DefaultBox = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: solid black;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin-top: 40px;
 `;
 
 const FirstBox = styled.div`
@@ -28,7 +26,7 @@ const SecondBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d2e1ff;
+  /* background-color: #d2e1ff; */
 `;
 
 const ListBox = styled.div`

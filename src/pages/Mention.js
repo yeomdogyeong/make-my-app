@@ -10,11 +10,9 @@ const DefaultBox = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: solid black;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin-top: 40px;
 `;
 
 const SecondBox = styled.div`
