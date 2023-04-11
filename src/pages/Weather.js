@@ -81,6 +81,7 @@ export const Weather = () => {
   const [location, setLocation] = useState("");
   const [result, setResult] = useState({});
   const [result2, setResult2] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`; //react값 순차적으로 렌더링되니까 location이랑 API_KEY위로 올려주기
   const seoulUrl = `https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=${API_KEY}`;
@@ -105,15 +106,16 @@ export const Weather = () => {
         method: "get",
         url: seoulUrl,
       });
-      console.log(data);
+
       setResult2(data);
     } catch (err) {
       alert(err);
     }
   };
-
+  console.log(searchWeather2);
   useEffect(() => {
     searchWeather2();
+    setIsLoading(false);
   }, []);
 
   return (
@@ -129,8 +131,12 @@ export const Weather = () => {
               {Object.keys(result2).length !== 0 && (
                 <div className="seoulWeather">
                   망고가 사는 서울의 날씨는 현재
-                  {Math.floor((result2.data.main.temp - 273.15) * 10) / 10}°C
-                  입니다
+                  {isLoading ? (
+                    <div> Loading중...</div>
+                  ) : (
+                    Math.floor((result2.data.main.temp - 273.15) * 10) / 10
+                  )}
+                  °C입니다
                 </div>
               )}
               <input
