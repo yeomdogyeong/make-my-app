@@ -12,10 +12,23 @@
 	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
 	<img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white"/>
 
+<div align="left">
+<h2>FE</h2>
+<div>
 
+|염도경|mango to do - CRUD|
+|---|---|
+|내용 1|내용 2|
+|내용 1|내용 2|
 
-|frontend|제목 셀2|제목 셀3|제목 셀4|
+<div align="left">
+<h2>:zap:Stack Used<h2
+<div>
+
+|HTML|CSS|JAVASCRIP|REACT|
 |---|---|---|---|
-|내용 1|내용 2|내용 3|내용 4|
+|내용 1|내용 2|]]|<img src=width="100">|
 
 </div>
+
+![giphy](https://user-images.githubusercontent.com/82639552/235289974-f1bdd7aa-4daf-46dd-a7fb-bcbdec7dfa07.gif)
