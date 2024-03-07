@@ -31,4 +31,3 @@
 
 </div>
 
-![giphy](https://user-images.githubusercontent.com/82639552/235289974-f1bdd7aa-4daf-46dd-a7fb-bcbdec7dfa07.gif)
