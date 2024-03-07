@@ -21,13 +21,4 @@
 |내용 1|내용 2|
 |내용 1|내용 2|
 
-<div align="left">
-<h2>:zap:Stack Used<h2
-<div>
-
-|HTML|CSS|JAVASCRIP|REACT|
-|---|---|---|---|
-|내용 1|내용 2|]]|<img src=width="100">|
-
-</div>
 
